@@ -13,7 +13,7 @@
                     </svg>
                 </a>
                 <div class="p-4 text-right"><p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">View Items</p>
-                    <h4 class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">CROPS</h4>
+                    <h4 class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">Farm Inputs</h4>
                 </div>
                 <div class="border-t border-blue-gray-50 p-4">
                     <p class="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
@@ -30,7 +30,7 @@
                       </svg>                      
                 </a>
                 <div class="p-4 text-right"><p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">View Groups</p>
-                    <h4 class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">CHEMICALS</h4>
+                    <h4 class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">Item Group</h4>
                 </div>
                 <div class="border-t border-blue-gray-50 p-4">
                     <p class="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">      
@@ -48,7 +48,7 @@
                                         
                 </a>
                 <div class="p-4 text-right"><p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">View Users</p>
-                    <h4 class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">USERS</h4>
+                    <h4 class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">Users                                </h4>
                 </div>
                 <div class="border-t border-blue-gray-50 p-4">
                     <p class="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">      
