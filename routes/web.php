@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/roles', [RoleController::class,'index'])->name('role.index');
+
 
 Route::middleware('auth')->group(function () {
     // ProfileController
@@ -35,6 +35,10 @@ Route::middleware('auth')->group(function () {
 
     // UserController
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::get('/users/{user}/profile', [UserController::class,'show'])->name('user.profile.show');
+    Route::put('admin/users/{user}/update', [UserController::class,'update'])->name('user.profile.update');
+    Route::put('users/{user}/attach', [UserController::class,'attach'])->name('user.role.attach');
+    Route::put('users/{user}/detach', [UserController::class,'detach'])->name('user.role.detach');
 
     // ItemController
     Route::get('/items', [ItemController::class, 'index'])->name('items.table');
@@ -50,6 +54,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/items/group/store', [GroupController::Class, 'store'])->name('items_group.store'); 
     Route::get('/items/group/{group}/edit', [GroupController::Class, 'edit'])->name('items_group.edit');
     Route::put('/items/group/{group}', [GroupController::Class, 'update'])->name('items_group.update');
+
+    // RoleController
+    Route::get('/roles', [RoleController::class,'index'])->name('role.index');
+    Route::post('/roles/store', [RoleController::class,'store'])->name('role.store');
+    Route::get('/roles/{role}/edit', [RoleController::class, 'edit'])->name('role.edit');
+    Route::put('/roles/{role}/update', [RoleController::class, 'update'])->name('role.update');
     
 });
 
