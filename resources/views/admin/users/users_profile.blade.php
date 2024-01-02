@@ -57,7 +57,7 @@
         </div>
         </form>
     </div>
-
+    @if(auth()->user()->userHasRole('SuperAdmin'))
     <div class="mt-12 relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md">
         <div class="relative bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr from-emerald-600 to-green-600 text-white shadow-gray-900/20 shadow-lg -mt-6 mb-8 p-6">
             <h6 class="block antialiased tracking-normal font-sans text-base font-semibold leading-relaxed text-white">Roles Table</h6>
@@ -138,6 +138,7 @@
             </table>
         </div>
     </div>
+    @endif
 </div>
 @endsection
 </x-front-end.admin-master>

@@ -23,7 +23,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-
 Route::middleware('auth')->group(function () {
     // ProfileController
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -33,15 +32,9 @@ Route::middleware('auth')->group(function () {
     // AdminController
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
-    // UserController
-    Route::get('/users', [UserController::class, 'index'])->name('users.index');
-    Route::get('/users/{user}/profile', [UserController::class,'show'])->name('user.profile.show');
-    Route::put('admin/users/{user}/update', [UserController::class,'update'])->name('user.profile.update');
-    Route::put('users/{user}/attach', [UserController::class,'attach'])->name('user.role.attach');
-    Route::put('users/{user}/detach', [UserController::class,'detach'])->name('user.role.detach');
-
     // ItemController
     Route::get('/items', [ItemController::class, 'index'])->name('items.table');
+    Route::get('/items/search', [ItemController::class, 'search'])->name('items.search');
     Route::get('/items/create', [ItemController::Class, 'create'])->name('items.create');
     Route::put('/items/store', [ItemController::Class, 'store'])->name('items.store');
     Route::get('/items/{item}/edit', [ItemController::class, 'edit'])->name('items.edit');
@@ -61,6 +54,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/roles/{role}/edit', [RoleController::class, 'edit'])->name('role.edit');
     Route::put('/roles/{role}/update', [RoleController::class, 'update'])->name('role.update');
     
+});
+
+Route::middleware(['role:SuperAdmin', 'auth'])->group(function () {
+    // UserController
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::get('/users/search', [UserController::class, 'search'])->name('users.search');
+    Route::get('/users/{user}/profile', [UserController::class,'show'])->name('user.profile.show');
+    Route::put('admin/users/{user}/update', [UserController::class,'update'])->name('user.profile.update');
+    Route::put('users/{user}/attach', [UserController::class,'attach'])->name('user.role.attach');
+    Route::put('users/{user}/detach', [UserController::class,'detach'])->name('user.role.detach');
 });
 
 require __DIR__.'/auth.php';

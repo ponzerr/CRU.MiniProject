@@ -9,10 +9,32 @@ use App\Models\Group;
 
 class ItemController extends Controller
 {
-    public function index(){
-        $items = Item::all(); // Fetch all items from the database
+    public function index(Request $request){
 
-        return view('admin.crops.item_table', ['items' => $items]);
+        // Fetch all items from the database
+        $query = Item::orderBy('created_at', 'DESC');
+
+        // Check if a search query is provided
+        $searchQuery = $request->input('search');
+
+        // Apply search filter if a query is provided
+        if ($searchQuery) {
+            $query->where('item_code', 'like', '%' . $searchQuery . '%')
+                ->orWhere('item_desc', 'like', '%' . $searchQuery . '%')
+                ->orWhere('item_group', 'like', '%' . $searchQuery . '%')
+                ->orWhere('item_price', 'like', '%' . $searchQuery . '%');
+        }
+
+        // Paginate the results
+        $items = $query->paginate(10); // Paginate with 10 items per page
+
+        return view('admin.crops.item_table', compact('items'));
+    }
+
+    public function search(Request $request)
+    {
+        // Redirect to the index method with the search query
+        return $this->index($request);
     }
 
     public function create(){

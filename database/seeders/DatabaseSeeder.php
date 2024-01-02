@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Item;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,6 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        User::factory(10)->create()->each(function($user) {
+            $user->items()->save(Item::factory()->make()); // Use Post::factory() to create a post for each user
+        });
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

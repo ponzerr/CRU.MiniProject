@@ -38,9 +38,11 @@
                                 <th class="border-b border-blue-gray-50 py-3 px-5 text-left">
                                     <p class="block antialiased font-sans text-[11px] font-bold uppercase text-blue-gray-400">Created by</p>
                                 </th>
+                                @if(auth()->user()->userHasRole('SuperAdmin'))   
                                 <th class="border-b border-blue-gray-50 py-3 px-5 text-left">
                                     <p class="block antialiased font-sans text-[11px] font-bold uppercase text-blue-gray-400">Request</p>
                                 </th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -57,6 +59,7 @@
                                 <td class="py-3 px-5 border-b border-blue-gray-50">
                                     <p class="block antialiased font-sans text-xs font-semibold text-blue-gray-600">{{ $group->user->username }}</p>
                                 </td>
+                                @if(auth()->user()->userHasRole('SuperAdmin'))   
                                 <td class="py-3 px-5 border-b border-blue-gray-50">
                                     <a href="{{ route('items_group.edit', $group->id) }}" class="relative grid grid-cols-2 items-center font-sans uppercase  select-none bg-gradient-to-tr from-red-600 to-red-400 text-white rounded-lg py-1 px-3 text-[11px] font-medium w-fit">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" data-slot="icon" class="w-4 h-4">
@@ -65,6 +68,7 @@
                                           </svg>
                                         Edit</a>
                                 </td>
+                                @endif
                             </tr>
                             @endforeach
                         </tbody>

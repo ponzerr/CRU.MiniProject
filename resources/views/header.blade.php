@@ -46,13 +46,12 @@
                     </li>
                 </ul>
             </div>
+
             @auth
             <form method="POST" action="{{ route('logout') }}">
                 @csrf  
             <div class="hidden gap-2 lg:flex ">
-                <a href="{{ route('home') }}" target="_blank">
-                    <button class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-4 rounded-lg bg-gradient-to-tr from-emerald-700 to-green-600 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] block w-full" type="submit"><a class="flex items-center gap-1 p-1 font-bold drop-shadow-md">signout</a></button>
-                </a>
+                    <button class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-4 rounded-lg bg-gradient-to-tr from-emerald-500 to-emerald-400 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] block w-full" type="submit">signout</button>
             </div>
             </form>
             @endauth

@@ -39,6 +39,7 @@
                 </div>
             </div>
 
+            @if(auth()->user()->userHasRole('SuperAdmin'))   
             {{-- Users Table --}}
             <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 border border-blue-gray-100 shadow-sm">
                 <a href="{{ route('users.index') }}" class="bg-clip-border mt-4 mx-4 rounded-xl overflow-hidden bg-gradient-to-tr from-emerald-700 to-green-700 text-white shadow-gray-900/20 hover:shadow-lg hover:shadow-green-900/20 hover:from-emerald-600 hover:to-green-600 hover:text-white active:opacity-85 absolute grid w-12 h-12 place-items-center">
@@ -56,6 +57,7 @@
                     </p>
                 </div>
             </div>
+            @endif
             </div>
         </div>
     </div>
